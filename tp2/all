@@ -64,8 +64,8 @@ sw = set(sw)
 year = 1969
 
 # Lister les fichiers de cette année
-data_path = '../data'
-txt_path = '../data/txt'
+data_path = './data'
+txt_path = './data/txt'
 txts = [f for f in os.listdir(txt_path) if os.path.isfile(os.path.join(txt_path, f)) and str(year) in f]
 txts
 
@@ -76,7 +76,7 @@ for txt in txts:
         content_list.append(f.read())
 
 # Ecrire tout le contenu dans un fichier temporaire
-temp_path = '../data/tmp'
+temp_path = './data/tmp'
 if not os.path.exists(temp_path):
     os.mkdir(temp_path)
 with open(os.path.join(temp_path, f'{year}.txt'), 'w') as f:
