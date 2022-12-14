@@ -108,3 +108,6 @@ venv.bak/
 .vscode/settings.json
 .DS_Store
 */tmp/*
+
+#ds_store
+.DS_Store
