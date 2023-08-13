@@ -8,9 +8,33 @@ from IPython.display import Image
 
 # Stopwords (Idem que dans s1)
 sw = stopwords.words("french")
-sw += [# déterminants et pronoms
-       "les", "cette", "ceux", "leurs", "cet", "celle", "quelques", "ils", "toutes",
-       "celui",  "la", "le", "elles", "plusieurs", "chaque",
+sw += ["afin", "aie", "ai", "ainsi", "allaient", "après", "au", "aux", "aussi", "auquel", "aura", "auront",
+       "aux", "auxquels", "auxquelles", "avaient", "avais", "avait", "avec", "avoir", "ayant",
+       "bien",
+       "ça", "ceci", "cela", "celle", "celle-ci", "celle-là", "celui", "celui-ci", "celui-là", "cependant", "ces", "cet", "cette", 
+       "ceux", "ceux-çi", "ceux-là", "chacun", "chaque", "chez", 
+       "comme", "comment", "contre",
+       "dans", "de", "delà", "depuis", "des", "dès", "desquels", "desquelles", "dire", "dit", "doit", "donc", "dont", "du", "duquel", "durant",
+       "en", "encore", "entre", "environ", "est", "es", "étant", "être", "etc", 
+       "faire", "fait", "faut", "feront", "font",
+       "het",
+       "ils",
+       "jusqu", "jusque",
+       "là", "la", "laquelle", "le", "lequel", "les", "lesquels", "lesquelles", "leur", "leurs", "lorsque", "lui",
+       "mais", "malgré", "même", "mes", "mien", "miennes", "moins",
+       "néanmoins", "non", "nos", "notre", "nôtre",
+       "où", "ou", "outre",
+       "parmi", "pas", "pendant", "peu", "peut", "plus",
+       "quel", "quelle", "quelles", "quels", "quelques",
+       "sans", "sauf", "se", "selon", "ses", "sous", "sur",
+       "tel", "telle", "tels", "telles", "tien", "tienne", "tous", "tout", "toute", "toutes", "très", "trois",
+       "une", "un",
+       "van", "vers","vos", "vôtre", "vôtres"
+       
+       #sw for all contexts:
+       # déterminants et pronoms
+       "celle", "celui", "cet", "cette", "ceux", "chaque", "elles", "ils", "la", "laquelle", "lequel", 
+       "le", "leurs", "les", "plusieurs", "quelques", "toutes",
 
        # abréviations
        "réf", "rens", "sal", "eng", "puis", "déjà", "tel", "apr", "sal",
@@ -27,13 +51,16 @@ sw += [# déterminants et pronoms
        "jusqu", "monsieur", "dame", "etc", "vis", "avant", "lieu", "peu", "jean", 
        "dès", "voit", "bien", "sans", "peut", "tous", "après", "ainsi", "donc", 
        "sous", "toute", "fois", "trop", "dés", "femme", "assez", "très", "alors",
-       "mme", "vers", "pierre", "belges", "and", "demi",
+       "mme", "vers", "pierre", "belges", "and", "demi", "quand",
 
+       #//////////////////////////////////////////////////////////////////////////
+       
+       #sw by specific contexts:
        # météo et temporalité
-       "temps", "pays", "samedi", "saint", "jour", "septembre", "sept",
-       "octobre", "novembre", "décembre", "janvier", "février", "mars", "avril", 
-       "mai", "juin", "juillet", "août", "samedi", "sam", "midi", "année", "fin", 
-       "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "matin",
+       "année", "pays", "temps", "samedi", "saint", "jour", "septembre", "sept",
+       "octobre", "novembre", "décembre", "janvier", "février", "avril", 
+       "mai", "juin", "juillet", "août", "sam", "samedi", "matin", "midi", "fin", 
+       "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi",
 
        #immobilier petites annonces
        "ville", "rossel", "app", "ter", "tél", "rue", "maison", "villa", "porte", 
@@ -126,4 +153,3 @@ print(frequencies.most_common(10))
 cloud = WordCloud(width=2000, height=1000, background_color='white').generate_from_frequencies(frequencies)
 cloud.to_file(os.path.join(temp_path, f"{year}.png"))
 Image(filename=os.path.join(temp_path, f"{year}.png"))
-
